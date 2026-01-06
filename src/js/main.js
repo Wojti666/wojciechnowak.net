@@ -1,9 +1,21 @@
 window.addEventListener('DOMContentLoaded', () => {
+	// Initialize Lenis
+	const lenis = new Lenis()
+
+	// Use requestAnimationFrame to continuously update the scroll
+	function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf)
+
 	// Initialize Lucide icons
 	lucide.createIcons()
 
 	// const footerYear = document.querySelector('.footer__year')
 	const navMobile = document.querySelector('.mobile-nav')
+	const navLogo = document.querySelector('.logo')
 	const navBtn = document.querySelector('.hamburger')
 
 	// const handleCurrentYear = () => {
@@ -26,6 +38,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 	navBtn.addEventListener('click', handleNav)
 	navMobile.addEventListener('click', removeStickyBody)
+	navLogo.addEventListener('click', handleNav)
+	navLogo.addEventListener('click', removeStickyBody)
 
 	const subHeaders = [
 		'Logo mojej strony. Slash (/) i backslash (\\). Mały przypadek twórczy ; )',
@@ -41,11 +55,16 @@ window.addEventListener('DOMContentLoaded', () => {
 	const subheader = document.querySelector('#subheader')
 
 	function changeColors() {
-		gsap.to('.hero', { backgroundColor: '#000', duration: 0.5 })
+		// gsap.to('.hero', { backgroundColor: '#000', duration: 0.5 })
+		gsap.to('.hero', {
+			background: 'radial-gradient(circle at center, #092b27 0%, #000000 65%)',
+			duration: 0.5,
+		})
 		gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#fff', duration: 0.5 })
 	}
 	function revertColors() {
-		gsap.to('.hero', { backgroundColor: '#e3e3e3', duration: 0.5 })
+		gsap.to('.hero', { background: '#e3e3e3', duration: 0.5 })
+		// gsap.to('.hero', { backgroundColor: '#e3e3e3', duration: 0.5 })
 		gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#000', duration: 0.5 })
 	}
 	items.forEach(item => {
@@ -127,7 +146,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	}
 	function resetPlaceholderText() {
 		const defaultText = '\\/\\/ /\\/'
-		const defaultSubHeaderText = 'Front-end web developer. Twórca stron internetowych.'
+		// const defaultSubHeaderText = 'Front-end web developer. Twórca stron internetowych.'
+		const defaultSubHeaderText = 'Tworzę nowoczesne strony internetowe, które wyróżniają marki i działają biznesowo.'
 
 		subheader.textContent = defaultSubHeaderText
 		animateScale(placeholder, 1.25)
@@ -138,6 +158,44 @@ window.addEventListener('DOMContentLoaded', () => {
 		item.addEventListener('mouseover', updatePlaceholderText)
 		item.addEventListener('mouseout', resetPlaceholderText)
 	})
+
+	// timeline items animation
+	const itemz = document.querySelectorAll('.timeline-item')
+
+	const observer = new IntersectionObserver(
+		entries => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('show')
+				}
+			})
+		},
+		{ threshold: 0.2 }
+	)
+
+	itemz.forEach(item => observer.observe(item))
+
+	// form
+	const msgStatus = document.querySelector('.msg-status')
+
+	console.log(document.location.search)
+
+	if (document.location.search === '?mail_status=sent') {
+		msgStatus.classList.add('success')
+		msgStatus.textContent = 'Dziękuję za wiadomość, odezwę się wkrótce!'
+
+		setTimeout(() => {
+			msgStatus.classList.remove('success')
+		}, 4000)
+	}
+	if (document.location.search === '?mail_status=error') {
+		msgStatus.classList.add('error')
+		msgStatus.textContent = 'Nie udało się wysłać wiadomości, spróbuj ponownie!'
+
+		setTimeout(() => {
+			msgStatus.classList.remove('error')
+		}, 4000)
+	}
 
 	// cookie alert
 	const cookieBox = document.querySelector('.cookie-box')
@@ -157,4 +215,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	cookieBtn.addEventListener('click', handleCookieBox)
 	showCookie()
+
+	// const cards = document.querySelectorAll('.offer-card')
+
+	// const offerObserver = new IntersectionObserver(
+	// 	entries => {
+	// 		entries.forEach(entry => {
+	// 			if (entry.isIntersecting) {
+	// 				entry.target.classList.add('visible')
+	// 			}
+	// 		})
+	// 	},
+	// 	{ threshold: 0.2 }
+	// )
+
+	// cards.forEach(card => offerObserver.observe(card))
+
+	// footer
+	// Aktualny rok
+	document.getElementById('year').textContent = new Date().getFullYear()
+
+	// Scroll do góry
+	document.querySelector('.to-top').addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	})
 })

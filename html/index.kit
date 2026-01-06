@@ -4,7 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wojciechnowak.net</title>
+    <title>Wojciech Nowak - strony internetowe, UI/UX, web development</title>
+
+    <meta name="description"
+        content="Projektuję nowoczesne, szybkie strony internetowe. UI/UX, kodowanie, optymalizacja. Umów bezpłatną konsultację.">
+    <meta name="keywords"
+        content="strony internetowe, web developer, projektowanie stron, ui ux, web development, strony firmowe, strony wizytówki, seo techniczne, seo on-page, frontend developer">
+    <meta name="author" content="Wojtek Nowak">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wojciech Nowak - nowoczesne strony internetowe">
+    <meta property="og:description"
+        content="Projektuję strony internetowe, które wyróżniają marki i realnie działają biznesowo.">
+    <meta property="og:url" content="https://wojciechnowak.net">
+    <!-- <meta property="og:image" content="https://wojciechnowak.net/og-image.jpg"> -->
+    <meta property="og:site_name" content="Wojciech Nowak">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,14 +37,16 @@
 </head>
 
 <body>
+    <!-- <div class="nav-overlay"></div> -->
     <nav class="wrapper">
-        <a id="item-0" class="logo" rel="noopener" href="info.html">\/\//\/</a>
+        <a class="logo mobile" href="#home">\/\//\/</a>
+        <a id="item-0" class="logo desktop" href="#home">\/\//\/</a>
         <!-- desktop nav -->
         <div class="nav-links">
-            <a id="item-1" class="nav-link" rel="noopener" href="info.html">Info</a>
-            <a id="item-2" class="nav-link" rel="noopener" href="proces.html">Proces</a>
-            <a id="item-3" class="nav-link" rel="noopener" href="oferta.html">Oferta</a>
-            <a id="item-4" class="nav-link" rel="noopener" href="kontakt.html">Kontakt</a>
+            <a id="item-1" class="nav-link" href="#about-us">O mnie</a>
+            <a id="item-2" class="nav-link" href="#process">Proces</a>
+            <a id="item-3" class="nav-link" href="#offer">Oferta</a>
+            <a id="item-4" class="nav-link" href="#contact">Kontakt</a>
         </div>
         <!-- mobile nav -->
         <button class="hamburger hamburger--3dx" type="button">
@@ -38,25 +56,28 @@
         </button>
 
         <ul class="mobile-nav">
-            <li><a class="nav-link-mobile" rel="noopener" href="#about-us">Info</a></li>
-            <li><a class="nav-link-mobile" rel="noopener" href="proces.html">Proces</a></li>
-            <li><a class="nav-link-mobile" rel="noopener" href="oferta.html">Oferta</a></li>
-            <li><a class="nav-link-mobile" rel="noopener" href="kontakt.html">Kontakt</a></li>
+            <li><a class="nav-link-mobile" href="#about-us">O mnie</a></li>
+            <li><a class="nav-link-mobile" href="#process">Proces</a></li>
+            <li><a class="nav-link-mobile" href="#offer">Oferta</a></li>
+            <li><a class="nav-link-mobile" href="#contact">Kontakt</a></li>
         </ul>
     </nav>
 
 
-    <div class="hero">
+    <div class="hero" id="home">
         <div class="hero-overlay"></div>
 
 
 
         <div class="header">
             <h1 class="placeholder">wojciechnowak.net</h1>
-            <p id="subheader">Front-end web developer. Twórca stron internetowych.</p>
+            <!-- <p id="subheader">Front-end web developer. Twórca stron internetowych.</p> -->
+            <!-- <p id="subheader">Pomagam firmom i freelancerom wyróżnić się w sieci dzięki nowoczesnemu designowi i czystemu kodowi.</p> -->
+            <p id="subheader">Tworzę nowoczesne strony internetowe, które wyróżniają marki i działają biznesowo.</p>
+            <!-- <video src="/dist/img/lightningsmall.mp4" loop autoplay muted></video> -->
             <div class="hero-cta">
-                <a href="mailto:email@wojciechnowak.net" id="item-5">Umów bezpłatną wycenę</a>
-                <a href="mailto:email@wojciechnowak.net" id="item-5-mobile">Umów bezpłatną wycenę</a>
+                <a href="#contact" id="item-5">Umów bezpłatną wycenę</a>
+                <a href="#contact" id="item-5-mobile">Umów bezpłatną wycenę</a>
                 <!-- <a href="mailto:email@wojciechnowak.net" id="item-5">email@wojciechnowak.net</a> -->
                 <!-- <a href="tel:+48 537 546 782" id="item-6">+48 537 546 782</a> -->
             </div>
@@ -66,12 +87,12 @@
 
     <section id="about-us" class="section">
         <div class="info-title wrapper">
-            <h3 class="section-title">o mnie</h3>
+            <h3 class="section-title">O mnie</h3>
         </div>
         <div class="about-us-box wrapper">
             <div class="about-us-img">
-                <img src="/dist/img/face.JPG" alt="">
-                <!-- <img src="/dist/img/facelong.JPG" alt=""> -->
+                <img class="mobile-img" src="/dist/img/face.jpg" alt="">
+                <img class="desktop-img" src="/dist/img/facelong.JPG" alt="">
             </div>
             <div class="about-us-text">
                 <h4 class="text-title">Rozpisałem się trochę ; )</h4>
@@ -79,7 +100,7 @@
                     Nazywam się Wojtek Nowak. Mieszkam na wsi pod Puławami, gdzie jest wystarczająco cicho, żeby myśleć,
                     i wystarczająco daleko od miasta, żeby nie przeszkadzały mi powiadomienia… no, przynajmniej te z
                     ulicy.</p>
-                <p class="text-box">Od dzieciaka grałem w piłkę nożną — nauczyła mnie pracy zespołowej, szybkiego
+                <p class="text-box">Od dzieciaka grałem w piłkę nożną - nauczyła mnie pracy zespołowej, szybkiego
                     reagowania i tego, że czasem najlepszym ruchem jest podanie, a nie strzał. Te lekcje bardzo dobrze
                     sprawdzają się dziś w IT.
                     Poza boiskiem zawsze były komputery i gry. Do dziś wracam do Baldur’s Gate II, bo dobra historia,
@@ -87,19 +108,19 @@
                 <p class="text-box">Interesuje mnie kosmos, bo przypomina, jak mali jesteśmy, historia, bo lubi się
                     powtarzać, i psychologia, bo ludzie potrafią być bardziej skomplikowani niż niejedna aplikacja.
                     Lubię obserwować, analizować i rozumieć, dlaczego coś działa… albo spektakularnie nie działa.</p>
-                <p class="text-box">Tworzeniem stron zajmuję się od dawna — kiedyś wyobrażałem sobie internet jak miks
+                <p class="text-box">Tworzeniem stron zajmuję się od dawna - kiedyś wyobrażałem sobie internet jak miks
                     Matrixa i Cyberpunka, dziś zamiast bycia netrunnerem jestem front-end web developerem, który
                     zamienia pomysły w działające interfejsy. Bez zbędnych bajerów, za to z naciskiem na sens,
                     użyteczność i rozwiązywanie realnych problemów.</p>
                 <p class="text-box">Jeśli chcesz pogadać o projektach, kodzie, grach albo o tym, dlaczego ludzie klikają
-                    tam, gdzie nie powinni — odezwij się. <br> Z dużym prawdopodobieństwem znajdziemy wspólny temat.</p>
+                    tam, gdzie nie powinni - odezwij się. <br> Z dużym prawdopodobieństwem znajdziemy wspólny temat.</p>
             </div>
         </div>
     </section>
 
     <section id="services" class="section">
         <div class="info-title wrapper">
-            <h3 class="section-title">co robię</h3>
+            <h3 class="section-title">Co robię</h3>
         </div>
         <div class="card-box">
             <div class="card wrapper">
@@ -122,27 +143,318 @@
     </section>
     <section id="whyme" class="section">
         <div class="info-title wrapper">
-            <h3 class="section-title">dlaczego ja</h3>
+            <h3 class="section-title">Dlaczego ja</h3>
         </div>
         <div class="card-box wrapper">
             <div class="card wrapper">
                 <div class="overlay overlay-item-1"></div>
-                <h4 class="card-title">Indywidualne podejście</h4>
+                <!-- <h4 class="card-title">Indywidualne podejście</h4> -->
+                <h4 class="card-title">Bez szablonów - wszystko szyte na miarę</h4>
             </div>
             <div class="card wrapper">
                 <div class="overlay overlay-item-2"></div>
-                <h4 class="card-title">Jasny proces</h4>
+                <!-- <h4 class="card-title">Jasny proces</h4> -->
+                <h4 class="card-title">Szybkie ładowanie i czysty kod</h4>
             </div>
             <div class="card wrapper">
                 <div class="overlay overlay-item-3"></div>
-                <h4 class="card-title">Kod bez generatorów</h4>
+                <!-- <h4 class="card-title">Kod bez generatorów</h4> -->
+                <h4 class="card-title">Jasna komunikacja, zero korpo-bullshitu</h4>
             </div>
             <div class="card wrapper">
                 <div class="overlay overlay-item-4"></div>
-                <h4 class="card-title">Kontakt bez pośredników</h4>
+                <!-- <h4 class="card-title">Kontakt bez pośredników</h4> -->
+                <h4 class="card-title">Myślę biznesowo, nie tylko wizualnie</h4>
             </div>
         </div>
     </section>
+
+    <section class="process section" id="process">
+        <div class="info-title wrapper">
+            <h3 class="section-title">Proces współpracy</h3>
+        </div>
+        <div class="process-box wrapper">
+            <div class="timeline wrapper">
+                <div class="timeline-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <h3>Rozmowa i cele</h3>
+                    <p>Poznaję Twoje cele, branżę i użytkowników.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </span>
+                    <h3>Projekt UI</h3>
+                    <p>Makieta + design, zero zgadywania.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-code"></i>
+                    </span>
+                    <h3>Development</h3>
+                    <p>Czysty, szybki kod.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-rocket"></i>
+                    </span>
+                    <h3>Testy i start</h3>
+                    <p>Sprawdzam, wdrażam, oddaję.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </span>
+                    <h3>Wsparcie</h3>
+                    <p>Nie znikam po publikacji.</p>
+                </div>
+            </div>
+            <div class="timeline-img wrapper">
+                <div class="overlay overlay"></div>
+                <h4 class="card-title">Mobile-view</h4>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="offer" class="offer section">
+
+        <div class="info-title wrapper">
+            <h3 class="section-title">Oferta</h3>
+            <p>Wybierz zakres, resztą zajmę się ja.</p>
+        </div>
+
+        <div class="offer-grid wrapper">
+            <article class="offer-card purple">
+                <h3>Pakiet Start</h3>
+                <p>Dla małych firm i specjalistów, którzy chcą zaistnieć w internecie</p>
+                <a href="#contact" class="cta-button">Zamów wycenę</a>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>strona wizytówka (1-3 podstrony)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>indywidualny, prosty design</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>wersja mobilna (RWD)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>formularz kontaktowy</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>podstawowe SEO (nagłówki, meta)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>szybkie ładowanie strony</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>pomoc przy domenie i hostingu</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>1 runda poprawek</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>wsparcie po wdrożeniu</p>
+                    </li>
+                </ul>
+                <p>Technologia: HTML/CSS/JS lub WordPress</p>
+                <p>Czas realizacji: 5-7 dni</p>
+                <p>Cena: od 2800 zł</p>
+            </article>
+
+            <article class="offer-card blue">
+                <h3>Pakiet Biznes</h3>
+                <p>Dla firm, które chcą zdobywać klientów przez stronę</p>
+                <a href="#contact" class="cta-button">Zamów wycenę</a>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>strona WWW lub landing page (do 5 podstron)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>projekt pod konwersję (CTA, struktura)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>indywidualny design (UI/UX)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>wersja mobilna</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>formularze + integracje (np. e-mail)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>optymalizacja szybkości</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>SEO on-page</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>WordPress – łatwa edycja treści</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>2 rundy poprawek</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>krótka instrukcja obsługi</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>wsparcie po wdrożeniu</p>
+                    </li>
+                </ul>
+                <p>Technologia: WordPress lub HTML/CSS/JS + CMS</p>
+                <p>Czas realizacji: 7-14 dni</p>
+                <p>Cena: od 5500 zł</p>
+            </article>
+
+            <article class="offer-card dark">
+                <h3>Pakiet Premium</h3>
+                <p>Dla marek osobistych i firm, które chcą się wyróżnić</p>
+                <a href="#contact" class="cta-button">Zamów wycenę</a>
+                <ul>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>landing page / portfolio / strona do 8 podstron</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>pełny, indywidualny projekt graficzny</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>animacje i interakcje (JavaScript)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>zaawansowana optymalizacja szybkości</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>SEO techniczne</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>integracje (Analytics, Pixel, newsletter)</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>WordPress + zabezpieczenia</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>priorytetowa realizacja</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>3 rundy poprawek</p>
+                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i>
+                        <p>wsparcie po wdrożeniu</p>
+                    </li>
+                </ul>
+                <p>Technologia: HTML/CSS/JS + WordPress (custom)</p>
+                <p>Czas realizacji: 14-21 dni</p>
+                <p>Cena: od 9000 zł</p>
+            </article>
+        </div>
+
+        <div class="offer-footer wrapper">
+            <p class="pricing-note">
+                Każdy projekt wyceniam indywidualnie.
+            </p>
+            <p class="pricing-note">
+                Pakiety są punktem wyjścia - zakres i cena zależą od celów, funkcjonalności i skali projektu.
+            </p>
+            <!-- <a href="#kontakt" class="cta-button">Zamów wycenę</a> -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact section">
+        <div class="info-title wrapper">
+            <h3 class="section-title">Kontakt</h3>
+            <p>Masz pomysł na stronę? Pogadajmy.</p>
+
+        </div>
+        <div class="contact-container wrapper">
+            <div class="contact-media">
+                <div class="phone-info contact-info">
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <a href="tel:+48 537 546 782">+48 537 546 782</a>
+                </div>
+                <div class="mail-info contact-info">
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <a href="mailto:email@wojciechnowak.net">email@wojciechnowak.net</a>
+                </div>
+                <div class="adres-info contact-info">
+                    <span class="contact-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                    <p>Kajetanów, 24-100 Puławy</p>
+                </div>
+
+            </div>
+            <div class="form-box">
+                <form action="mail.php" method="POST" class="contact-form">
+                    <div class="contact-box">
+                        <label for="name">Imię</label>
+                        <input type="text" id="name" name="name" autocomplete="given-name" required>
+                    </div>
+                    <div class="contact-box">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="contact-box">
+                        <label for="msg">Wiadomość</label>
+                        <textarea name="msg" id="msg" required></textarea>
+                    </div>
+                    <button><i class="fa-solid fa-paper-plane"></i> Wyślij wiadomość</button>
+                </form>
+
+                <p class="msg-status"></p>
+            </div>
+        </div>
+        <div class="contact-note wrapper info-title">
+            <p>Odpowiadam zwykle w ciągu 24h.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-brand">
+                <h3>Wojciech Nowak</h3>
+                <p>Nowoczesne strony internetowe, UI/UX i web development.</p>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Nawigacja</h4>
+                <ul>
+                    <li><a href="#start">Start</a></li>
+                    <li><a href="#oferta">Oferta</a></li>
+                    <li><a href="#proces">Proces</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Kontakt</h4>
+                <a href="mailto:kontakt@wojciechnowak.net">kontakt@wojciechnowak.net</a>
+                <div class="footer-socials">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="year"></span> Wojciech Nowak</span>
+            <button class="to-top" aria-label="Wróć na górę">↑</button>
+        </div>
+    </footer>
+
+
 
     <div class="cookie-box">
         <p>Moja strona korzysta z ciasteczek!</p>
@@ -162,7 +474,7 @@
 
 
 
-
+    <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="/dist/js/main.min.js"></script>
 </body>
