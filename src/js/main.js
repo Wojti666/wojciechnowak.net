@@ -10,19 +10,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	requestAnimationFrame(raf)
 
-	// Initialize Lucide icons
-	lucide.createIcons()
-
-	// const footerYear = document.querySelector('.footer__year')
+	// nav
 	const navMobile = document.querySelector('.mobile-nav')
 	const navLogo = document.querySelector('.logo')
 	const navBtn = document.querySelector('.hamburger')
-
-	// const handleCurrentYear = () => {
-	// 	const year = new Date().getFullYear()
-	// 	footerYear.innerText = year
-	// }
-	// handleCurrentYear()
 
 	const handleNav = () => {
 		navBtn.classList.toggle('is-active')
@@ -41,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	navLogo.addEventListener('click', handleNav)
 	navLogo.addEventListener('click', removeStickyBody)
 
+	// hero animation
 	const subHeaders = [
 		'Logo mojej strony. Slash (/) i backslash (\\). Mały przypadek twórczy ; )',
 		'Podstawowe informacje o moich usługach.',
@@ -55,108 +47,171 @@ window.addEventListener('DOMContentLoaded', () => {
 	const subheader = document.querySelector('#subheader')
 
 	function changeColors() {
-		// gsap.to('.hero', { backgroundColor: '#000', duration: 0.5 })
 		gsap.to('.hero', {
 			background: 'radial-gradient(circle at center, #092b27 0%, #000000 65%)',
 			duration: 0.5,
 		})
 		gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#fff', duration: 0.5 })
+		// gsap.to('.nav-links', { backgroundColor: '#b8babeff', duration: 0.5 })
 	}
 	function revertColors() {
-		gsap.to('.hero', { background: '#e3e3e3', duration: 0.5 })
-		// gsap.to('.hero', { backgroundColor: '#e3e3e3', duration: 0.5 })
+		gsap.to('.hero', { background: '#b8babe', duration: 0.5 })
 		gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#000', duration: 0.5 })
+		// gsap.to('.nav-links', { backgroundColor: '#b8babe', duration: 0.5 })
 	}
+
 	items.forEach(item => {
 		item.addEventListener('mouseover', changeColors)
 		item.addEventListener('mouseout', revertColors)
 	})
+
 	function animateScale(element, scaleValue) {
 		gsap.fromTo(element, { scale: 1 }, { scale: scaleValue, duration: 2, ease: 'power1.out' })
 	}
+
 	items.forEach(item => {
 		item.addEventListener('mouseover', changeColors)
 		item.addEventListener('mouseout', revertColors)
 	})
-	function animateScale(element, scaleValue) {
-		gsap.fromTo(element, { scale: 1 }, { scale: scaleValue, duration: 2, ease: 'power1.out' })
-	}
-	function wrapLetters(text) {
-		placeholder.innerHTML = ''
-		;[...text].forEach(letter => {
-			const span = document.createElement('span')
-			span.style.filter = 'blur(8px)'
-			span.textContent = letter
-			placeholder.appendChild(span)
-		})
-	}
-	function animateBlurEffect() {
-		const letters = placeholder.children
-		let index = 0
 
-		function clearNextLetter() {
-			if (index < letters.length) {
-				gsap.to(letters[index], { filter: 'blur(0px)', duration: 0.5 })
-				index++
-				if (index < letters.length) {
-					setTimeout(clearNextLetter, 100)
-				}
-			}
-		}
-		setTimeout(clearNextLetter, 0)
-	}
-	function shuffleLetters(finalText) {
-		wrapLetters('')
-		wrapLetters(finalText.replace(/./g, ' '))
-
-		let textArray = finalText.split('')
-		let shufflingCounter = 0
-		let intervalHandles = []
-
-		function shuffle(index) {
-			if (shufflingCounter < 30) {
-				textArray[index] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)]
-				placeholder.children[index].textContent = textArray[index]
-			} else {
-				placeholder.children[index].textContent = finalText.charAt(index)
-				clearInterval(intervalHandles[index])
-			}
-		}
-		for (let i = 0; i < finalText.length; i++) {
-			intervalHandles[i] = setInterval(shuffle, 20, i)
-		}
-		setTimeout(() => {
-			shufflingCounter = 30
-			for (let i = 0; i < finalText.length; i++) {
-				placeholder.children[i].textContent = finalText.charAt(i)
-				clearInterval(intervalHandles[i])
-			}
-			animateBlurEffect()
-		}, 1000)
-	}
 	function updatePlaceholderText(event) {
-		const newText = event.target.textContent
 		const itemIndex = Array.from(items).indexOf(event.target)
 		const newSubHeaderText = subHeaders[itemIndex]
 
 		subheader.textContent = newSubHeaderText
 		animateScale(placeholder, 1.25)
-		// animateScale(subheader, 2)
-		shuffleLetters(newText)
 	}
-	function resetPlaceholderText() {
-		const defaultText = '\\/\\/ /\\/'
-		// const defaultSubHeaderText = 'Front-end web developer. Twórca stron internetowych.'
-		const defaultSubHeaderText = 'Tworzę nowoczesne strony internetowe, które wyróżniają marki i działają biznesowo.'
 
+	function resetPlaceholderText() {
+		const defaultSubHeaderText = 'Tworzę nowoczesne strony internetowe, które wyróżniają marki i działają biznesowo.'
 		subheader.textContent = defaultSubHeaderText
 		animateScale(placeholder, 1.25)
 		// animateScale(subheader, 2)
-		shuffleLetters(defaultText)
 	}
+
 	items.forEach(item => {
 		item.addEventListener('mouseover', updatePlaceholderText)
 		item.addEventListener('mouseout', resetPlaceholderText)
+	})
+
+	function wrapLetters(text) {
+		placeholder.innerHTML = ''
+		;[...text].forEach(letter => {
+			const span = document.createElement('span')
+			span.textContent = letter
+			span.style.filter = 'blur(8px)'
+			placeholder.appendChild(span)
+		})
+	}
+
+	let tl = null
+
+	const RANDOM_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	function playShuffle(text) {
+		// twardy reset poprzedniej animacji
+		if (tl) {
+			tl.kill()
+			tl = null
+		}
+
+		wrapLetters(text)
+
+		const letters = [...placeholder.children]
+
+		tl = gsap.timeline()
+
+		// FAZA 1 — losowanie znaków (GSAP jako clock)
+		tl.to(
+			{},
+			{
+				duration: 0.01,
+				repeat: 60,
+				onRepeat: () => {
+					letters.forEach(span => {
+						span.textContent = RANDOM_CHARS[Math.floor(Math.random() * RANDOM_CHARS.length)]
+					})
+				},
+			}
+		)
+
+		// FAZA 2 — ustaw właściwy tekst
+		tl.add(() => {
+			letters.forEach((span, i) => {
+				span.textContent = text[i]
+			})
+		})
+
+		// FAZA 3 — blur schodzi sekwencyjnie (wcześnie)
+		tl.to(
+			letters,
+			{
+				filter: 'blur(0px)',
+				duration: 0.5,
+				stagger: 0.1,
+				ease: 'power1.out',
+			},
+			'>' // ⬅️ start praktycznie od początku
+		)
+	}
+
+	const DEFAULT_TEXT = '\\/\\/ /\\/'
+
+	function resetShuffle() {
+		if (tl) {
+			tl.kill()
+			tl = null
+		}
+
+		wrapLetters(DEFAULT_TEXT)
+
+		const letters = [...placeholder.children]
+
+		tl = gsap.timeline()
+
+		// FAZA 1 — losowanie znaków (GSAP jako clock)
+		tl.to(
+			{},
+			{
+				duration: 0.01,
+				repeat: 60,
+				onRepeat: () => {
+					letters.forEach(span => {
+						span.textContent = RANDOM_CHARS[Math.floor(Math.random() * RANDOM_CHARS.length)]
+					})
+				},
+			}
+		)
+
+		// FAZA 2 — ustaw właściwy tekst
+		tl.add(() => {
+			letters.forEach((span, i) => {
+				span.textContent = DEFAULT_TEXT[i]
+			})
+		})
+
+		// FAZA 3 — blur schodzi sekwencyjnie (wcześnie)
+		tl.to(
+			letters,
+			{
+				filter: 'blur(0px)',
+				duration: 0.3,
+				stagger: 0.06,
+				ease: 'power1.out',
+			},
+			'>' // ⬅️ start praktycznie od początku
+		)
+
+		// gsap.set(placeholder.children, { filter: 'blur(0px)' })
+	}
+
+	items.forEach(item => {
+		item.addEventListener('mouseenter', e => {
+			playShuffle(e.target.textContent)
+		})
+
+		item.addEventListener('mouseleave', e => {
+			resetShuffle(e.target.textContent)
+		})
 	})
 
 	// timeline items animation
