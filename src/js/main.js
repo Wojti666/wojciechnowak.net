@@ -42,37 +42,43 @@ window.addEventListener('DOMContentLoaded', () => {
 		'Mój e-mail. Odpisuję w ciągu 24 godzin.',
 		'Zadzwoń. Chętnie porozmawiam.',
 	]
-	const items = document.querySelectorAll('#item-0, #item-1, #item-2, #item-3, #item-4, #item-5, #item-6')
+	const items = document.querySelectorAll('#item-0, #item-1, #item-2, #item-3, #item-4, #item-5')
+	const itemFive = document.querySelector('#item-5')
 	const placeholder = document.querySelector('.placeholder')
 	const subheader = document.querySelector('#subheader')
 
 	function changeColors() {
 		gsap.to('.hero', {
 			background: 'radial-gradient(circle at center, #092b27 0%, #000000 65%)',
-			duration: 0.5,
+			duration: 0.6,
 		})
-		gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#fff', duration: 0.5 })
+		gsap.to('.placeholder, #subheader, .hero-cta a', { color: '#f2f0ed', duration: 0.6 })
+		// gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#f2f0ed', duration: 0.6 })
 		// gsap.to('.nav-links', { backgroundColor: '#b8babeff', duration: 0.5 })
 	}
 	function revertColors() {
-		gsap.to('.hero', { background: '#b8babe', duration: 0.5 })
-		gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#000', duration: 0.5 })
+		gsap.to('.hero', { background: '#f2f0ed', duration: 0.6 })
+		gsap.to('.placeholder, #subheader, .hero-cta a', { color: '#000', duration: 0.6 })
+		// gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#000', duration: 0.6 })
+		gsap.to('.hero-cta a', { color: '#f2f0ed', duration: 0.6 })
 		// gsap.to('.nav-links', { backgroundColor: '#b8babe', duration: 0.5 })
 	}
 
-	items.forEach(item => {
-		item.addEventListener('mouseover', changeColors)
-		item.addEventListener('mouseout', revertColors)
-	})
+	// items.forEach(item => {
+	// 	item.addEventListener('mouseover', changeColors)
+	// 	item.addEventListener('mouseout', revertColors)
+	// })
+	itemFive.addEventListener('mouseover', changeColors)
+	itemFive.addEventListener('mouseout', revertColors)
 
 	function animateScale(element, scaleValue) {
 		gsap.fromTo(element, { scale: 1 }, { scale: scaleValue, duration: 2, ease: 'power1.out' })
 	}
 
-	items.forEach(item => {
-		item.addEventListener('mouseover', changeColors)
-		item.addEventListener('mouseout', revertColors)
-	})
+	// items.forEach(item => {
+	// 	item.addEventListener('mouseover', changeColors)
+	// 	item.addEventListener('mouseout', revertColors)
+	// })
 
 	function updatePlaceholderText(event) {
 		const itemIndex = Array.from(items).indexOf(event.target)
@@ -154,7 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		)
 	}
 
-	const DEFAULT_TEXT = '\\/\\/ /\\/'
+	const DEFAULT_TEXT = '\\/\\//\\/'
 
 	function resetShuffle() {
 		if (tl) {
@@ -271,6 +277,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	cookieBtn.addEventListener('click', handleCookieBox)
 	showCookie()
 
+	// offer cardds animation
 	// const cards = document.querySelectorAll('.offer-card')
 
 	// const offerObserver = new IntersectionObserver(
@@ -294,4 +301,22 @@ window.addEventListener('DOMContentLoaded', () => {
 	document.querySelector('.to-top').addEventListener('click', () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
 	})
+
+	// box-shadow hover effect
+	// const hero = document.querySelector('#home')
+
+	// const observerHero = new IntersectionObserver(
+	// 	([entry]) => {
+	// 		if (entry.isIntersecting) {
+	// 			document.body.classList.add('in-hero')
+	// 		} else {
+	// 			document.body.classList.remove('in-hero')
+	// 		}
+	// 	},
+	// 	{
+	// 		threshold: 0.1,
+	// 	}
+	// )
+
+	// observerHero.observe(hero)
 })

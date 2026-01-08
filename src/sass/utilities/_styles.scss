@@ -12,13 +12,8 @@ html {
 html,
 body {
 	position: relative;
-	// height: 100%;
-	// width: 100%;
-	// overflow: hidden;
 	font-size: 12px;
 	font-family: 'Lexend', serif;
-
-	// background: #e3e3e300;
 }
 
 .wrapper {
@@ -142,6 +137,30 @@ nav {
 	font-family: 'Lexend', serif;
 	background: #e3e3e3;
 	background: #b8babe;
+	background: #e2e2e2;
+	background: #f2f2f2;
+	// background: #f7f7f7;
+	background: #f2f0ed;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* Filtr SVG generujący szum */
+	filter: url(#grainy-noise);
+	/* Subtelna przezroczystość - klucz do efektu Premium */
+	opacity: 0.25;
+	opacity: 0.15;
+	opacity: 0.1;
+	// opacity: 0.4;
+	/* Zabezpieczenie przed interakcją myszy */
+	pointer-events: none;
+	mix-blend-mode: overlay; /* Kluczowe: szum miesza się z gradientem, nie przykrywa go */
+	mix-blend-mode: multiply; /* Kluczowe: szum miesza się z gradientem, nie przykrywa go */
 }
 
 .header {
@@ -153,20 +172,20 @@ nav {
 	min-height: 400px;
 }
 
-.hero-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	// background-image: url('/dist/img/myvs.jpg');
-	background-image: url('/dist/img/vscodebig.jpg');
-	background-size: cover;
-	background-position: center;
-	opacity: 0.12;
-	filter: blur(4px);
-	// z-index: 1;
-}
+// .hero-overlay {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	// background-image: url('/dist/img/myvs.jpg');
+// 	background-image: url('/dist/img/vscodebig.jpg');
+// 	background-size: cover;
+// 	background-position: center;
+// 	opacity: 0.12;
+// 	filter: blur(4px);
+// 	// z-index: 1;
+// }
 
 .hero-cta {
 	// background-image: url('/dist/img/lightningsmall.mp4');
@@ -268,14 +287,35 @@ nav {
 
 // about us section
 #about-us {
+	position: relative;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	// border-top: 1px solid #ffffff;
 	// background: #000;
-	// background: radial-gradient(circle at top center, #092b27 0%, #000000 65%);
-	background: linear-gradient(135deg, #092b27 0%, #041815 40%, #000000 100%);
+	// background: linear-gradient(135deg, #092b27 0%, #041815 40%, #000000 100%);
+	// background: #0a1a12;
+	background: radial-gradient(circle at top center, #092b27 0%, #000000 65%);
+	overflow: hidden;
+}
+
+#about-us::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* Filtr SVG generujący szum */
+	filter: url(#grainy-noise);
+	/* Subtelna przezroczystość - klucz do efektu Premium */
+	opacity: 0.25;
+	// opacity: 0.4;
+	/* Zabezpieczenie przed interakcją myszy */
+	pointer-events: none;
+	mix-blend-mode: overlay; /* Kluczowe: szum miesza się z gradientem, nie przykrywa go */
 }
 
 .about-us-box {
@@ -323,8 +363,9 @@ nav {
 .text-box {
 	text-align: left;
 	text-wrap: pretty;
-	letter-spacing: 1px;
-	color: #e3e3e3;
+	// letter-spacing: 1px;
+	// color: #e3e3e3;
+	color: #b8babe;
 }
 
 // services section
@@ -543,7 +584,6 @@ nav {
 	// background: #b8babe;
 	background: #fff;
 
-
 	.section-title {
 		color: #000;
 	}
@@ -560,6 +600,7 @@ nav {
 	grid-template-columns: repeat(1, 1fr);
 	gap: 2rem;
 	padding: 0 1rem;
+	font-weight: 300;
 }
 
 .offer-card {
@@ -567,6 +608,7 @@ nav {
 	flex-direction: column;
 	gap: 2rem;
 	padding: 4rem 2rem;
+	border: 1px solid #2ed3c6;
 	border-radius: 6px;
 	background: #fff;
 	// background: #e3e3e3;
@@ -585,6 +627,9 @@ nav {
 	text-align: center;
 	font-size: 1.8rem;
 }
+.offer-card h4 {
+	text-align: center;
+}
 
 .offer-card ul {
 	list-style: none;
@@ -595,7 +640,9 @@ nav {
 	align-items: center;
 	gap: 1rem;
 	font-size: 1.4rem;
+	font-weight: 300;
 	margin-bottom: 10px;
+	border-bottom: 1px solid #2ed3c577;
 	i {
 		color: #2ed3c6;
 		font-size: 1.8rem;
@@ -613,15 +660,25 @@ nav {
 // }
 
 .offer-footer {
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+	// align-items: center;
+	gap: 1rem;
+	width: 100%;
 	padding: 0 1rem;
-	text-align: center;
+	// text-align: center;
+	// text-align-last: left;
 	margin-top: 60px;
+	font-weight: 300;
 }
 
 .pricing-note {
 	// margin-bottom: 20px;
-	font-size: 2rem;
+	max-width: 70ch;
+	font-size: 1.4rem;
 	font-style: italic;
+	text-wrap: pretty;
 	color: #c7c7d6;
 	color: #000;
 }
@@ -657,6 +714,10 @@ nav {
 	color: #e3e3e3;
 }
 
+.contact .info-title .section-subtitle {
+	padding: 0 1rem;
+}
+
 .contact-container {
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
@@ -677,7 +738,7 @@ nav {
 	padding: 2rem 1rem;
 	border-radius: 6px;
 	font-size: 1.4rem;
-	background: linear-gradient(135deg, #092b27 0%, #041815 40%, #000000 100%);
+	// background: linear-gradient(135deg, #092b27 0%, #041815 40%, #000000 100%);
 
 	p {
 		color: #e3e3e3;
@@ -740,7 +801,7 @@ nav {
 		// font-weight: normal;
 		// margin-bottom: 10px;
 		margin-left: 1rem;
-		margin-bottom: 1rem;
+		margin-bottom: 0.4rem;
 	}
 
 	.contact-form input,
@@ -840,12 +901,13 @@ nav {
 	font-size: 1.4rem;
 	background: #000000;
 	// background: radial-gradient(circle at bottom left, #092b27 0%, #000000 65%);
-	background: linear-gradient(0deg, #092b27 0%, #041815 40%, #000000 100%);
+	// background: linear-gradient(0deg, #092b27 0%, #041815 40%, #000000 100%);
 	// border-top: 2px solid #2ed3c527;
 	// background: #e3e3e3;
 
 	// color: #e5e7eb;
 	// font-family: Inter, sans-serif;
+	font-weight: 300;
 }
 
 .footer-container {
@@ -990,27 +1052,33 @@ nav {
 	}
 
 	.logo {
+		padding: 0.5rem 1rem;
+
 		font-size: 1.2rem;
 		line-height: 1.6;
 		background: #b8babe;
 		border: 1px solid #000;
-		transition: box-shadow 0.4s;
+		// transition: box-shadow 0.4s;
+		transition: color 0.4s, background 0.4s;
+		// box-shadow: none;
 		&:hover {
 			background: #000;
-			-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
-			-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
-			box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+			color: #fff;
+			// -webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+			// -moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+			// box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
 		}
 	}
 	.nav-links {
 		display: flex;
 		padding: 0.5rem 2rem;
 		background: #b8babe;
+		background: #000;
 		border: 1px solid #000;
 		border-radius: 6px;
 		gap: 6rem;
 		transition: box-shadow 0.4s;
-
+		box-shadow: none;
 		& a {
 			padding: 0.5rem 1rem;
 			text-decoration: none;
@@ -1020,17 +1088,49 @@ nav {
 			line-height: 1.6;
 			cursor: pointer;
 			border-radius: 6px;
+			background: #b8babe;
+			transition: color 0.4s, background 0.4s;
 		}
 		& a:hover {
+			color: #fff;
 			background: #000;
 		}
 	}
 
-	.nav-links:has(.nav-link:hover) {
-		-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
-		-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
-		box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// .nav-links:has(.nav-link:hover) {
+	// 	-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 	-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 	box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// }
+
+	/* DOMYŚLNIE hover WYŁĄCZONY */
+	.logo:hover {
+		background: #000;
 	}
+
+	.nav-links:has(.nav-link:hover) {
+		box-shadow: none;
+	}
+
+	/* TYLKO gdy jesteś w hero */
+	// body.in-hero {
+	// 	.logo:hover {
+	// 		-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 		-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 		box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 	}
+	// 	.logo:hover + .nav-links {
+	// 		-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 		-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 		box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 	}
+
+	// 	.nav-links:has(.nav-link:hover) {
+	// 		-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 		-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 		box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
+	// 	}
+	// }
 
 	.hamburger {
 		display: none;
@@ -1045,9 +1145,15 @@ nav {
 	}
 
 	.hero-cta a {
+		font-size: 1.6rem;
+		font-weight: 300;
+		background: #000;
+		// color: #b8babe;
+		color: #fff;
 		transition: box-shadow 0.4s;
 		&:hover {
 			border: #b8babe 2px solid;
+			// border: #D4AF37 2px solid;
 			-webkit-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
 			-moz-box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
 			box-shadow: 0px 4px 100px 44px rgba(0, 0, 0, 1);
@@ -1090,6 +1196,10 @@ nav {
 
 	.text-box:hover {
 		background: linear-gradient(135deg, #092b27 0%, #041815 40%, #00000000 100%);
+	}
+
+	#services .card:hover i {
+		color: #2ed3c6;
 	}
 
 	#whyme .card-box {

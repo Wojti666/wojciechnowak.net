@@ -37,6 +37,14 @@
 </head>
 
 <body>
+    <!-- noise -->
+    <svg style="visibility: hidden; position: absolute;" width="0" height="0">
+        <filter id="grainy-noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+        </filter>
+    </svg>
+
     <!-- <div class="nav-overlay"></div> -->
     <nav class="wrapper">
         <a class="logo mobile" href="#home">\/\//\/</a>
@@ -76,8 +84,10 @@
             <p id="subheader">Tworzę nowoczesne strony internetowe, które wyróżniają marki i działają biznesowo.</p>
             <!-- <video src="/dist/img/lightningsmall.mp4" loop autoplay muted></video> -->
             <div class="hero-cta">
-                <a href="#contact" id="item-5">Umów bezpłatną wycenę</a>
-                <a href="#contact" id="item-5-mobile">Umów bezpłatną wycenę</a>
+                <a href="#contact" id="item-5">Porozmawiajmy o Twojej stronie</a>
+                <!-- <a href="#contact" id="item-5">Umów bezpłatną konsultację</a> -->
+                <a href="#contact" id="item-5-mobile">Porozmawiajmy o Twojej stronie</a>
+                <!-- <a href="#contact" id="item-5-mobile">Umów bezpłatną konsultację</a> -->
                 <!-- <a href="mailto:email@wojciechnowak.net" id="item-5">email@wojciechnowak.net</a> -->
                 <!-- <a href="tel:+48 537 546 782" id="item-6">+48 537 546 782</a> -->
             </div>
@@ -232,135 +242,99 @@
 
         <div class="offer-grid wrapper">
             <article class="offer-card purple">
-                <h3>Pakiet Start</h3>
-                <p>Dla małych firm i specjalistów, którzy chcą zaistnieć w internecie</p>
-                <a href="#contact" class="cta-button">Zamów wycenę</a>
+                <h3>WIZYTÓWKA PREMIUM</h3>
+                <h4>Twój fundament</h4>
+                <p>Dla freelancerów i małych firm, które chcą profesjonalnie zaprezentować ofertę i budować autorytet.
+                </p>
+                <p>Cel: Koniec z wstydem przy podawaniu adresu strony. Budujemy zaufanie od pierwszej sekundy.
+                </p>
+                <a href="#contact" class="cta-button">Umów konsultację</a>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>strona wizytówka (1-3 podstrony)</p>
+                        <p>Projekt One-Page (wszystko w jednym, czytelnym widoku).</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>indywidualny, prosty design</p>
+                        <p>Błyskawiczne ładowanie: Strona zoptymalizowana pod szybkość (Green Score w Google).</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>wersja mobilna (RWD)</p>
+                        <p>Copywriting sprzedażowy: Pomogę Ci ubrać Twoją ofertę w słowa, które trafiają do klienta.</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>formularz kontaktowy</p>
+                        <p>Pełna responsywność (idealny wygląd na telefonach).</p>
                     </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>podstawowe SEO (nagłówki, meta)</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>szybkie ładowanie strony</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>pomoc przy domenie i hostingu</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>1 runda poprawek</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>wsparcie po wdrożeniu</p>
-                    </li>
+
                 </ul>
-                <p>Technologia: HTML/CSS/JS lub WordPress</p>
+                <p>Koszty utrzymania: Minimalne (prowadzę Cię za rękę przy wyborze najtańszego, stabilnego hostingu).
+                </p>
                 <p>Czas realizacji: 5-7 dni</p>
-                <p>Cena: od 2800 zł</p>
+                <p>Inwestycja: od 2 500 PLN</p>
             </article>
 
             <article class="offer-card blue">
-                <h3>Pakiet Biznes</h3>
-                <p>Dla firm, które chcą zdobywać klientów przez stronę</p>
-                <a href="#contact" class="cta-button">Zamów wycenę</a>
+                <h3>STRONA BIZNES</h3>
+                <h4>Twoje centrum sprzedaży</h4>
+                <p>Dla firm, które chcą aktywnie pozyskiwać klientów i edukować ich poprzez treści.</p>
+                <p>Cel: Strona, która nie tylko „jest”, ale aktywnie pomaga sprzedawać Twoje usługi.</p>
+                <a href="#contact" class="cta-button">Umów konsultację</a>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>strona WWW lub landing page (do 5 podstron)</p>
+                        <p>Otrzymujesz wszystko co w Wizytówce +</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>projekt pod konwersję (CTA, struktura)</p>
+                        <p>Wielostronicowa struktura (O nas, Usługi, Blog/Aktualności).</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>indywidualny design (UI/UX)</p>
+                        <p>System CMS: Samodzielnie dodasz wpis lub zmienisz cenę bez dzwonienia do programisty.</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>wersja mobilna</p>
+                        <p>Integracje: Połączenie z Google Analytics i Facebook Pixel (widzisz, kto Cię odwiedza).</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>formularze + integracje (np. e-mail)</p>
+                        <p>Podstawowa optymalizacja SEO (aby klienci łatwiej znaleźli Cię w Google).</p>
                     </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>optymalizacja szybkości</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>SEO on-page</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>WordPress – łatwa edycja treści</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>2 rundy poprawek</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>krótka instrukcja obsługi</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>wsparcie po wdrożeniu</p>
-                    </li>
+
                 </ul>
-                <p>Technologia: WordPress lub HTML/CSS/JS + CMS</p>
+
+                <p>Koszty utrzymania: Stałe i przewidywalne.</p>
                 <p>Czas realizacji: 7-14 dni</p>
-                <p>Cena: od 5500 zł</p>
+                <p>Inwestycja: od 4 500 PLN</p>
             </article>
 
-            <article class="offer-card dark">
-                <h3>Pakiet Premium</h3>
-                <p>Dla marek osobistych i firm, które chcą się wyróżnić</p>
-                <a href="#contact" class="cta-button">Zamów wycenę</a>
+            <article class="offer-card">
+                <h3>CUSTOM & GROWTH</h3>
+                <h4>Wsparcie strategiczne</h4>
+                <p>Dla tych, którzy potrzebują unikalnych rozwiązań lub pełnego oddelegowania opieki nad stroną.</p>
+                <p>Cel: Skalowanie biznesu bez martwienia się o technologię.</p>
+                <a href="#contact" class="cta-button">Umów konsultację</a>
                 <ul>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>landing page / portfolio / strona do 8 podstron</p>
+                        <p>Indywidualne funkcjonalności (rezerwacje online, kalkulatory, strefy klienta).</p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>pełny, indywidualny projekt graficzny</p>
+                        <p>Stała opieka techniczna: Ja pilnuję aktualizacji i bezpieczeństwa, Ty zajmujesz się firmą.
+                        </p>
                     </li>
                     <li><i class="fa-solid fa-circle-check"></i>
-                        <p>animacje i interakcje (JavaScript)</p>
+                        Audyty konwersji i stałe ulepszanie strony pod kątem sprzedaży.
                     </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>zaawansowana optymalizacja szybkości</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>SEO techniczne</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>integracje (Analytics, Pixel, newsletter)</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>WordPress + zabezpieczenia</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>priorytetowa realizacja</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>3 rundy poprawek</p>
-                    </li>
-                    <li><i class="fa-solid fa-circle-check"></i>
-                        <p>wsparcie po wdrożeniu</p>
-                    </li>
+
                 </ul>
-                <p>Technologia: HTML/CSS/JS + WordPress (custom)</p>
-                <p>Czas realizacji: 14-21 dni</p>
-                <p>Cena: od 9000 zł</p>
+                <p>Inwestycja: Wycena indywidualna (na podstawie celów biznesowych).</p>
+                <!-- <p>Czas realizacji: 14-21 dni</p> -->
+                <!-- <p>Cena: od 9000 zł</p> -->
             </article>
         </div>
 
         <div class="offer-footer wrapper">
-            <p class="pricing-note">
-                Każdy projekt wyceniam indywidualnie.
+
+            <p class="pricing-note">„Gwarancja Czystego Startu:” Pomagam w konfiguracji domeny i hostingu na Twoje dane.
+                Strona od początku
+                do końca należy do Ciebie - bez żadnych ukrytych abonamentów i uzależnienia od wykonawcy.
             </p>
-            <p class="pricing-note">
-                Pakiety są punktem wyjścia - zakres i cena zależą od celów, funkcjonalności i skali projektu.
+            <p class="pricing-note">Każdy projekt wyceniam indywidualnie.
+            </p>
+            <p class="pricing-note">Pakiety są punktem wyjścia - zakres i cena zależą od celów, funkcjonalności i skali
+                projektu.
             </p>
             <!-- <a href="#kontakt" class="cta-button">Zamów wycenę</a> -->
         </div>
@@ -369,7 +343,7 @@
     <section id="contact" class="contact section">
         <div class="info-title wrapper">
             <h3 class="section-title">Kontakt</h3>
-            <p>Masz pomysł na stronę? Pogadajmy.</p>
+            <p class="section-subtitle">Masz pomysł na stronę? Porozmawiajmy.</p>
 
         </div>
         <div class="contact-container wrapper">
@@ -408,14 +382,14 @@
                         <label for="msg">Wiadomość</label>
                         <textarea name="msg" id="msg" required></textarea>
                     </div>
-                    <button><i class="fa-solid fa-paper-plane"></i> Wyślij wiadomość</button>
+                    <button><i class="fa-solid fa-paper-plane"></i> Zacznijmy projekt</button>
                 </form>
 
                 <p class="msg-status"></p>
             </div>
         </div>
         <div class="contact-note wrapper info-title">
-            <p>Odpowiadam zwykle w ciągu 24h.</p>
+            <p>Odpowiadam w ciągu 24h.</p>
         </div>
     </section>
 
