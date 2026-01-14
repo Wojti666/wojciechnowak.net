@@ -220,43 +220,70 @@ window.addEventListener('DOMContentLoaded', () => {
 		})
 	})
 
-	// timeline items animation
-	const itemz = document.querySelectorAll('.timeline-item')
+	// form
 
-	const observer = new IntersectionObserver(
-		entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('show')
+	const contactForm = document.getElementById('contactForm')
+	const toast = document.getElementById('toast')
+
+	if (contactForm) {
+		contactForm.addEventListener('submit', async function (e) {
+			e.preventDefault()
+
+			const formData = new FormData(contactForm)
+
+			try {
+				const resp = await fetch(contactForm.action || 'mail.php', {
+					method: 'POST',
+					body: formData,
+					headers: {
+						Accept: 'application/json',
+					},
+				})
+
+				const json = await resp.json()
+
+				if (resp.ok && json.status === 'sent') {
+					showToast()
+					contactForm.reset()
+				} else {
+					// pokaż błąd użytkownikowi
+					alert(json.message || 'Wystąpił błąd przy wysyłce wiadomości.')
 				}
-			})
-		},
-		{ threshold: 0.2 }
-	)
+			} catch (err) {
+				console.error(err)
+				alert('Błąd sieci - spróbuj ponownie później.')
+			}
+		})
+	}
 
-	itemz.forEach(item => observer.observe(item))
+	function showToast() {
+		if (toast) {
+			toast.classList.add('show')
+			setTimeout(() => toast.classList.remove('show'), 4000)
+		}
+	}
 
 	// form
-	const msgStatus = document.querySelector('.msg-status')
+	// const msgStatus = document.querySelector('.msg-status')
 
-	console.log(document.location.search)
+	// console.log(document.location.search)
 
-	if (document.location.search === '?mail_status=sent') {
-		msgStatus.classList.add('success')
-		msgStatus.textContent = 'Dziękuję za wiadomość, odezwę się wkrótce!'
+	// if (document.location.search === '?mail_status=sent') {
+	// 	msgStatus.classList.add('success')
+	// 	msgStatus.textContent = 'Dziękuję za wiadomość, odezwę się wkrótce!'
 
-		setTimeout(() => {
-			msgStatus.classList.remove('success')
-		}, 4000)
-	}
-	if (document.location.search === '?mail_status=error') {
-		msgStatus.classList.add('error')
-		msgStatus.textContent = 'Nie udało się wysłać wiadomości, spróbuj ponownie!'
+	// 	setTimeout(() => {
+	// 		msgStatus.classList.remove('success')
+	// 	}, 4000)
+	// }
+	// if (document.location.search === '?mail_status=error') {
+	// 	msgStatus.classList.add('error')
+	// 	msgStatus.textContent = 'Nie udało się wysłać wiadomości, spróbuj ponownie!'
 
-		setTimeout(() => {
-			msgStatus.classList.remove('error')
-		}, 4000)
-	}
+	// 	setTimeout(() => {
+	// 		msgStatus.classList.remove('error')
+	// 	}, 4000)
+	// }
 
 	// cookie alert
 	const cookieBox = document.querySelector('.cookie-box')
@@ -319,4 +346,39 @@ window.addEventListener('DOMContentLoaded', () => {
 	// )
 
 	// observerHero.observe(hero)
+
+	const accordionHeaders = document.querySelectorAll('.accordion-header')
+
+	// Funkcja obsługująca kliknięcie
+	accordionHeaders.forEach(header => {
+		header.addEventListener('click', () => {
+			const currentlyActive = document.querySelector('.accordion-header.active')
+
+			// Zamknij poprzednią sekcję, jeśli istnieje i nie jest to kliknięta
+			if (currentlyActive && currentlyActive !== header) {
+				currentlyActive.classList.remove('active')
+				currentlyActive.nextElementSibling.style.maxHeight = null
+			}
+
+			// Przełącz aktywność klikniętej sekcji
+			header.classList.toggle('active')
+			const content = header.nextElementSibling
+
+			if (header.classList.contains('active')) {
+				content.style.maxHeight = content.scrollHeight + 'px'
+			} else {
+				content.style.maxHeight = null
+			}
+		})
+	})
+
+	// Automatyczne otwarcie pierwszej sekcji po załadowaniu strony
+	window.addEventListener('load', () => {
+		const firstHeader = accordionHeaders[0]
+		if (firstHeader) {
+			firstHeader.classList.add('active')
+			const firstContent = firstHeader.nextElementSibling
+			firstContent.style.maxHeight = firstContent.scrollHeight + 'px'
+		}
+	})
 })
