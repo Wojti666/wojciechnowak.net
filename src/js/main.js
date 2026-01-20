@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		gsap.to('.hero', { background: '#f2f0ed', duration: 0.6 })
 		gsap.to('.placeholder, #subheader, .hero-cta a', { color: '#000', duration: 0.6 })
 		// gsap.to('.placeholder, nav, .logo, .nav-link, #subheader, .hero-cta a', { color: '#000', duration: 0.6 })
-		gsap.to('.hero-cta a', { color: '#f2f0ed', duration: 0.6 })
+		gsap.to('.hero-cta a', { color: '#2ed3c6', duration: 0.6 })
 		// gsap.to('.nav-links', { backgroundColor: '#b8babe', duration: 0.5 })
 	}
 
@@ -322,12 +322,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// footer
 	// Aktualny rok
-	document.getElementById('year').textContent = new Date().getFullYear()
+	document.getElementById('currentYear').textContent = new Date().getFullYear()
 
 	// Scroll do góry
-	document.querySelector('.to-top').addEventListener('click', () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' })
-	})
+	// document.querySelector('.to-top').addEventListener('click', () => {
+	// 	window.scrollTo({ top: 0, behavior: 'smooth' })
+	// })
 
 	// box-shadow hover effect
 	// const hero = document.querySelector('#home')
@@ -347,38 +347,38 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	// observerHero.observe(hero)
 
-	const accordionHeaders = document.querySelectorAll('.accordion-header')
+	// const accordionHeaders = document.querySelectorAll('.accordion-header')
 
-	// Funkcja obsługująca kliknięcie
-	accordionHeaders.forEach(header => {
-		header.addEventListener('click', () => {
-			const currentlyActive = document.querySelector('.accordion-header.active')
+	// // Funkcja obsługująca kliknięcie
+	// accordionHeaders.forEach(header => {
+	// 	header.addEventListener('click', () => {
+	// 		const currentlyActive = document.querySelector('.accordion-header.active')
 
-			// Zamknij poprzednią sekcję, jeśli istnieje i nie jest to kliknięta
-			if (currentlyActive && currentlyActive !== header) {
-				currentlyActive.classList.remove('active')
-				currentlyActive.nextElementSibling.style.maxHeight = null
-			}
+	// 		// Zamknij poprzednią sekcję, jeśli istnieje i nie jest to kliknięta
+	// 		if (currentlyActive && currentlyActive !== header) {
+	// 			currentlyActive.classList.remove('active')
+	// 			currentlyActive.nextElementSibling.style.maxHeight = null
+	// 		}
 
-			// Przełącz aktywność klikniętej sekcji
-			header.classList.toggle('active')
-			const content = header.nextElementSibling
+	// 		// Przełącz aktywność klikniętej sekcji
+	// 		header.classList.toggle('active')
+	// 		const content = header.nextElementSibling
 
-			if (header.classList.contains('active')) {
-				content.style.maxHeight = content.scrollHeight + 'px'
-			} else {
-				content.style.maxHeight = null
-			}
-		})
-	})
+	// 		if (header.classList.contains('active')) {
+	// 			content.style.maxHeight = content.scrollHeight + 'px'
+	// 		} else {
+	// 			content.style.maxHeight = null
+	// 		}
+	// 	})
+	// })
 
-	// Automatyczne otwarcie pierwszej sekcji po załadowaniu strony
-	window.addEventListener('load', () => {
-		const firstHeader = accordionHeaders[0]
-		if (firstHeader) {
-			firstHeader.classList.add('active')
-			const firstContent = firstHeader.nextElementSibling
-			firstContent.style.maxHeight = firstContent.scrollHeight + 'px'
-		}
-	})
+	// // Automatyczne otwarcie pierwszej sekcji po załadowaniu strony
+	// window.addEventListener('load', () => {
+	// 	const firstHeader = accordionHeaders[0]
+	// 	if (firstHeader) {
+	// 		firstHeader.classList.add('active')
+	// 		const firstContent = firstHeader.nextElementSibling
+	// 		firstContent.style.maxHeight = firstContent.scrollHeight + 'px'
+	// 	}
+	// })
 })
